@@ -33,10 +33,12 @@ body {
 .completed-container {
     background-color: #f0f0f0;
     flex-basis: 30%;
+    /* min-height: 50vh; */
 }
 .pending-container {
     background-color: #f0f0f0;
     flex-basis: 30%;
+    min-height: 50vh;
 }
 
 /* .form {
@@ -97,15 +99,18 @@ button {
 
 .delete-button {
     background-color: #c94c4c;
+    margin: 0 3px;
 }
 
 .edit-button {
     background-color: #008cba;
+    margin: 0 3px;
 }
 
 .push-button,
 .pull-button {
     background-color: #4caf50;
+    margin: 0 3px;
 }
 
 #submit-btn {
