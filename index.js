@@ -249,7 +249,7 @@ const Controller = (function (view, model) {
         state.todoListData = filteredListData;
     };
 
-    const handlePushPull = function (event, method, className) {
+    const handlePushPull = async function (event, method, className) {
         /*
          * 1. check if the Element is "🠔 / 🠖"
          * 2. get the push/pull Element
@@ -273,11 +273,13 @@ const Controller = (function (view, model) {
                 }
             }
 
-            updateTodo(editedTodo);
+            await deleteTodo(itemId);
+            const newTodo = await createTodo(editedTodo);
+            console.log("newTodo", newTodo);
             const filteredListData = state.todoListData.filter(
                 (itemData) => itemData.id !== itemId
             );
-            filteredListData.push(editedTodo);
+            filteredListData.push(newTodo);
             console.log(
                 `$After {method} item with id: ${itemId}, new data: ${JSON.stringify(
                     filteredListData
